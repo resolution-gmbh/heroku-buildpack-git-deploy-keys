@@ -142,8 +142,8 @@ FileUtils.chmod 0600, "#{SSH_DIR}/private_key"
 arrow "Wrote ssh key to user's ssh dir"
 
 #create known_hosts file and write contents
-File.open "#{SSH_DIR}/known_hosts", 'w' do |f|
-  f.write host_hash
+File.open "#{SSH_DIR}/known_hosts", 'w+' do |f|
+  f.puts host_hash
 end
 FileUtils.chmod 0600, "#{SSH_DIR}/known_hosts"
 arrow "Wrote host hash to user's known hosts"
